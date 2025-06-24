@@ -1,4 +1,4 @@
-import HeaderMain from "@/components/common/Header/header-main";
+import HeaderMain from "@/components/common/header/header-main";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";

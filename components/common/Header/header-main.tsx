@@ -55,32 +55,37 @@ const HeaderMain = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="relative container mx-auto">
-      {/* Header ban đầu: Nổi lên trên slider, trong suốt, chữ trắng */}
-      <header
-        ref={initialHeaderRef}
-        className={cn(
-          "absolute top-0 left-0 right-0 w-full z-40 flex items-center justify-between px-8 py-6 transition-opacity duration-300 ease-in-out",
-          "bg-transparent", // Luôn trong suốt
-          isScrolledPastSlider ? "opacity-0 pointer-events-none" : "opacity-100" // Ẩn khi cuộn qua slider
-        )}
-      >
-        <InitialHeaderContent navItems={navItems} />
-      </header>
-
-      {/* Header cố định: Xuất hiện khi cuộn qua slider, nền trắng, đổ bóng */}
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6 transition-all duration-300 ease-in-out",
-          "bg-white shadow-md", // Luôn có nền trắng và đổ bóng
-          isScrolledPastSlider && isFixedHeaderVisible
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-full opacity-0 pointer-events-none"
-        )}
-      >
-        <FixedHeaderContent navItems={navItems} />
-      </header>
-    </div>
+    <>
+      <div className="relative">
+        {/* Header ban đầu: Nổi lên trên slider, trong suốt, chữ trắng */}
+        <header
+          ref={initialHeaderRef}
+          className={cn(
+            "absolute top-0 left-0 right-0 w-full z-40 transition-opacity duration-300 ease-in-out",
+            isScrolledPastSlider
+              ? "opacity-0 pointer-events-none"
+              : "opacity-100"
+          )}
+        >
+          <div className="container mx-auto flex items-center justify-between px-8 py-6">
+            <InitialHeaderContent navItems={navItems} />
+          </div>
+        </header>
+        {/* Header cố định */}
+        <header
+          className={cn(
+            "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ease-in-out bg-white shadow-md",
+            isScrolledPastSlider && isFixedHeaderVisible
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-full opacity-0 pointer-events-none"
+          )}
+        >
+          <div className="container mx-auto flex items-center justify-between px-8 py-6">
+            <FixedHeaderContent navItems={navItems} />
+          </div>
+        </header>
+      </div>
+    </>
   );
 };
 

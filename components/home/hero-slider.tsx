@@ -1,8 +1,8 @@
 "use client";
 
-import Image1 from "@/public/img/hero-slider/image1.png";
-import Image2 from "@/public/img/hero-slider/image2.png";
-import Image3 from "@/public/img/hero-slider/image3.png";
+import Image1 from "@/public/img/home/hero-slider/image1.png";
+import Image2 from "@/public/img/home/hero-slider/image2.png";
+import Image3 from "@/public/img/home/hero-slider/image3.png";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
 
@@ -65,11 +65,11 @@ export default function HeroSlider() {
             className="z-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-            <h2 className="text-5xl md:text-6xl font-serif text-white mb-4 drop-shadow-lg">
+            <h2 className="text-5xl md:text-6xl font-serif  mb-4 drop-shadow-lg">
               {slide.title}
             </h2>
             {slide.subtitle && (
-              <p className="text-xl md:text-2xl font-light text-gray-200 drop-shadow-md">
+              <p className="text-xl md:text-2xl font-light text-gray-500 drop-shadow-md">
                 {slide.subtitle}
               </p>
             )}
