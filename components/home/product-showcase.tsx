@@ -44,7 +44,7 @@ const products: Product[] = [
 
 export default function ProductShowcase() {
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto py-10">
       {/* Titles Section */}
       <div className="relative text-center mb-16">
         <h2 className="text-5xl md:text-6xl font-serif text-gray-800 uppercase leading-tight">
