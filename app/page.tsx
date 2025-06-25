@@ -1,7 +1,9 @@
 import AboutSection from "@/components/home/about-section";
+import GallerySection from "@/components/home/gallery-section";
 import HeroSlider from "@/components/home/hero-slider";
 import ProductShowcase from "@/components/home/product-showcase";
 import QuoteSlider from "@/components/home/quote-slider";
+import VideoShowcaseSection from "@/components/home/video-showcase-section";
 
 export default function Home() {
   return (
@@ -12,12 +14,9 @@ export default function Home() {
         <ProductShowcase />
         <AboutSection />
         <QuoteSlider />
+        <VideoShowcaseSection />
+        <GallerySection />
       </div>
-      {/* <div className="h-[800px] bg-gray-50 mt-8 flex items-center justify-center">
-        <p className="text-gray-500 text-lg">
-          Scroll down to see more content...
-        </p>
-      </div> */}
     </main>
   );
 }

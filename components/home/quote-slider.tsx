@@ -55,7 +55,7 @@ export default function QuoteSlider() {
         setCurrentSlideIndex((prevIndex) =>
           prevIndex === quotes.length - 1 ? 0 : prevIndex + 1
         ),
-      5000 // Chuyển slide sau mỗi 5 giây
+      2000
     );
 
     return () => {
