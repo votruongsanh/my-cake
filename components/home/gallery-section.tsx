@@ -10,7 +10,7 @@ import Image4 from "@/public/img/home/gallery-section/image4.png";
 import Image5 from "@/public/img/home/gallery-section/image5.png";
 import Image6 from "@/public/img/home/gallery-section/image6.png";
 import Image7 from "@/public/img/home/gallery-section/image7.png";
-import Image8 from "@/public/img/home/gallery-section/image8.png";
+import imageInstagram from "@/public/img/home/gallery-section/imageInstagram.png";
 
 export default function GallerySection() {
   // Placeholder images for each section of the collage
@@ -19,7 +19,7 @@ export default function GallerySection() {
     {
       id: 1,
       type: "instagram-promo",
-      image: Image8,
+      image: imageInstagram,
       alt: "Instagram Promotion",
       //   instagramText: "INSTAGRAM",
       followUsText: "Follow Us",
@@ -84,17 +84,21 @@ export default function GallerySection() {
 
   return (
     <section className="bg-[#FDF8F0]">
-      <div className="grid grid-cols-2 md:grid-cols-4">
-        {galleryItems.map((item) => (
-          <div key={item.id} className="relative overflow-hidden aspect-square">
-            <Image
-              src={item.image}
-              alt={item.alt}
-              layout="fill"
-              objectFit="cover"
-              className="transition-transform duration-300 hover:scale-105"
-            />
-            {item.type === "instagram-promo" && (
+      <Link href="/">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {galleryItems.map((item) => (
+            <div
+              key={item.id}
+              className="relative overflow-hidden aspect-square"
+            >
+              <Image
+                src={item.image}
+                alt={item.alt}
+                layout="fill"
+                objectFit="cover"
+                className="transition-transform duration-300 hover:scale-105"
+              />
+              {/* {item.type === "instagram-promo" && (
               <div className="flex flex-col items-center justify-center p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/50">
                 <h3 className="text-xl uppercase tracking-wide mb-2">
                   {item.followUsText}
@@ -113,10 +117,11 @@ export default function GallerySection() {
                   ))}
                 </div>
               </div>
-            )}
-          </div>
-        ))}
-      </div>
+            )} */}
+            </div>
+          ))}
+        </div>
+      </Link>
     </section>
   );
 }
