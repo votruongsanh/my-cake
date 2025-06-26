@@ -15,7 +15,7 @@ interface NavMenuProps {
 
 export default function NavMenu({ navItems }: NavMenuProps) {
   return (
-    <nav className="flex justify-center max-w-2xl">
+        <nav className="hidden md:flex justify-center max-w-2xl">
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 uppercase tracking-wide group">
         {navItems.map((item) => (
           <div key={item.href} className="relative flex justify-center">

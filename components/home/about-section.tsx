@@ -40,7 +40,7 @@ export default function AboutSection() {
         {/* Item3 chiếm 1.5/3 chiều rộng */}
         <div className="lg:col-span-6 p-8">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl  text-gray-800 mb-6 leading-tight">
               Câu Chuyện Về Tinh Tế Bakery
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">

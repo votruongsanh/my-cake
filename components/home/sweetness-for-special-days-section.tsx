@@ -38,7 +38,7 @@ export default function SweetnessForSpecialDaysSection() {
           <p className="text-sm uppercase tracking-widest text-gray-600 mb-2">
             CHOCO LOVE
           </p>
-          <h2 className="text-5xl md:text-6xl font-serif text-gray-800 uppercase leading-tight">
+          <h2 className="text-5xl md:text-6xl  text-gray-800 uppercase leading-tight">
             SWEETNESS FOR
             <br />
             SPECIAL DAYS
@@ -46,7 +46,7 @@ export default function SweetnessForSpecialDaysSection() {
           {/* Decorative "Choco" text */}
           <span
             className={cn(
-              "absolute text-4xl md:text-5xl font-serif font-light text-yellow-700/70",
+              "absolute text-4xl md:text-5xl  font-light text-yellow-700/70",
               "left-1/2 transform -translate-x-1/2", // Căn giữa ban đầu
               "mt-2 md:mt-4", // Khoảng cách từ dòng trên
               "top-[calc(50%+1.5rem)] md:top-[calc(50%+2rem)]", // Điều chỉnh vị trí dọc
@@ -68,9 +68,7 @@ export default function SweetnessForSpecialDaysSection() {
           {featureItems.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="mb-6">{item.icon}</div>
-              <h3 className="text-2xl font-serif text-gray-800 mb-4">
-                {item.title}
-              </h3>
+              <h3 className="text-2xl  text-gray-800 mb-4">{item.title}</h3>
               <p className="text-base text-gray-600 leading-relaxed">
                 {item.description}
               </p>

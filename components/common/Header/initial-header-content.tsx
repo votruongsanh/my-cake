@@ -21,7 +21,9 @@ export default function InitialHeaderContent({
         <NavMenu navItems={navItems} />
         <CartIcon itemCount={0} />
       </div>
-      <SocialMediaIcons />
+      <div className="hidden lg:flex">
+        <SocialMediaIcons />
+      </div>
     </>
   );
 }

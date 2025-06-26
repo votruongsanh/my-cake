@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* About Us */}
         <div>
-          <h3 className="text-xl font-serif font-medium mb-4 text-gray-800">
+          <h3 className="text-xl  font-medium mb-4 text-gray-800">
             Về Chúng Tôi
           </h3>
           <p className="text-sm leading-relaxed">
@@ -35,7 +35,7 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-serif font-medium mb-4 text-gray-800">
+          <h3 className="text-xl  font-medium mb-4 text-gray-800">
             Liên Kết Nhanh
           </h3>
           <ul className="space-y-2">
@@ -54,7 +54,7 @@ export default function Footer() {
 
         {/* Favorite Categories */}
         <div>
-          <h3 className="text-xl font-serif font-medium mb-4 text-gray-800">
+          <h3 className="text-xl  font-medium mb-4 text-gray-800">
             Danh Mục Yêu Thích
           </h3>
           <ul className="space-y-2">
@@ -73,9 +73,7 @@ export default function Footer() {
 
         {/* Contact & Social */}
         <div>
-          <h3 className="text-xl font-serif font-medium mb-4 text-gray-800">
-            Liên Hệ
-          </h3>
+          <h3 className="text-xl  font-medium mb-4 text-gray-800">Liên Hệ</h3>
           <p className="text-sm">123 Đường Bánh Ngọt, Quận 1, TP.HCM</p>
           <p className="text-sm">Điện thoại: (028) 1234 5678</p>
           <p className="text-sm">Email: info@tinh-te-bakery.com</p>

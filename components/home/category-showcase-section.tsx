@@ -47,7 +47,7 @@ export default function CategoryShowcaseSection() {
 
               {/* Text Content */}
               <div className="absolute bottom-6 left-6 right-6 text-white z-10">
-                <h3 className="text-3xl md:text-4xl font-serif mb-2 drop-shadow-md">
+                <h3 className="text-3xl md:text-4xl  mb-2 drop-shadow-md">
                   {category.title}
                 </h3>
                 <p className="text-base md:text-lg font-light mb-4 drop-shadow-sm">

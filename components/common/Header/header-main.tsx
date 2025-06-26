@@ -1,9 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { ChefHat } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import FixedHeaderContent from "./fixed-header-content";
+import CartIcon from "./cart-icon";
 import InitialHeaderContent from "./initial-header-content";
+import MobileNavMenu from "./mobile-nav-menu";
 
 const navItems = [
   { href: "/", label: "Home", active: true },
@@ -20,32 +23,55 @@ const navItems = [
 ];
 
 const HeaderMain = () => {
+  // State for desktop header scroll behavior
   const [isScrolledPastSlider, setIsScrolledPastSlider] = useState(false);
   const [isFixedHeaderVisible, setIsFixedHeaderVisible] = useState(false);
   const lastScrollY = useRef(0);
   const initialHeaderRef = useRef<HTMLElement>(null);
 
+  // State for mobile menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileHeaderVisible, setIsMobileHeaderVisible] = useState(true);
+  const mobileHeaderRef = useRef<HTMLElement>(null);
+  const [mobileHeaderHeight, setMobileHeaderHeight] = useState(0);
+
   useEffect(() => {
+    // Measure mobile header height for positioning the mobile menu
+    if (mobileHeaderRef.current) {
+      setMobileHeaderHeight(mobileHeaderRef.current.offsetHeight);
+    }
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY > lastScrollY.current;
+
+      // --- Mobile Header Logic ---
+      if (isScrollingDown && currentScrollY > 100) {
+        setIsMobileHeaderVisible(false);
+      } else {
+        setIsMobileHeaderVisible(true);
+      }
+
+      // --- Desktop Header Logic ---
       const initialHeaderHeight = initialHeaderRef.current
         ? initialHeaderRef.current.offsetHeight
         : 0;
-      const sliderHeight = window.innerHeight; // Giả định HeroSlider chiếm toàn bộ chiều cao viewport
-
+      const sliderHeight = window.innerHeight;
       const scrollThreshold = sliderHeight - initialHeaderHeight;
 
       setIsScrolledPastSlider(currentScrollY > scrollThreshold);
 
-      if (currentScrollY > lastScrollY.current) {
+      if (isScrollingDown && currentScrollY > initialHeaderHeight) {
         setIsFixedHeaderVisible(false);
       } else {
         setIsFixedHeaderVisible(true);
       }
 
+      // Reset states at top
       if (currentScrollY <= 0) {
         setIsScrolledPastSlider(false);
         setIsFixedHeaderVisible(false);
+        setIsMobileHeaderVisible(true);
       }
 
       lastScrollY.current = currentScrollY;
@@ -54,10 +80,47 @@ const HeaderMain = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <>
-      <div className="relative">
-        {/* Header ban đầu: Nổi lên trên slider, trong suốt, chữ trắng */}
+      {/* Mobile Header - Fixed */}
+      <header
+        ref={mobileHeaderRef}
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-white shadow-md p-4 md:hidden",
+          "transition-transform duration-300 ease-in-out",
+          isMobileHeaderVisible ? "translate-y-0" : "-translate-y-full"
+        )}
+      >
+        <Link href="/" aria-label="Home">
+          <ChefHat className="w-8 h-8 text-black" />
+        </Link>
+        <div className="flex items-center gap-6">
+          <CartIcon itemCount={0} />
+          <button
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className={cn(
+              "relative flex items-center justify-center h-9 w-20 rounded-full border border-gray-300 bg-white text-xs font-semibold uppercase tracking-widest transition-all duration-200 ease-in-out hover:bg-gray-100 active:scale-95",
+              "h-[60px] w-[60px]"
+            )}
+          >
+            {isMobileMenuOpen ? "Close" : "Menu"}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Navigation Menu - Slides down from under the header */}
+            <MobileNavMenu
+        navItems={navItems}
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        headerHeight={mobileHeaderHeight}
+        isHeaderVisible={isMobileHeaderVisible}
+      />
+
+      {/* Desktop Headers - Logic remains for larger screens */}
+      <div className="hidden md:block relative">
+        {/* Initial Header: Transparent, over slider */}
         <header
           ref={initialHeaderRef}
           className={cn(
@@ -68,10 +131,12 @@ const HeaderMain = () => {
           )}
         >
           <div className="container mx-auto flex items-center justify-between px-8 py-6">
+            {/* Using InitialHeaderContent for both, assuming text color is handled or acceptable */}
             <InitialHeaderContent navItems={navItems} />
           </div>
         </header>
-        {/* Header cố định */}
+
+        {/* Fixed Header: Appears on scroll */}
         <header
           className={cn(
             "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ease-in-out bg-white shadow-md",
@@ -81,7 +146,7 @@ const HeaderMain = () => {
           )}
         >
           <div className="container mx-auto flex items-center justify-between px-8 py-6">
-            <FixedHeaderContent navItems={navItems} />
+            <InitialHeaderContent navItems={navItems} />
           </div>
         </header>
       </div>

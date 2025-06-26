@@ -66,7 +66,7 @@ export default function OurStoryAndConfectionsSection() {
                 nguyên liệu đều được chọn lọc kỹ lưỡng, đảm bảo mang đến hương
                 vị tinh túy nhất.
               </p>
-              <p className="font-serif text-lg font-medium mt-4">Alan Perry</p>
+              <p className=" text-lg font-medium mt-4">Alan Perry</p>
             </div>
             <div className="text-left">
               <p className="text-base leading-relaxed mb-4">
@@ -74,9 +74,7 @@ export default function OurStoryAndConfectionsSection() {
                 xu hướng hiện đại, tạo ra những sản phẩm không chỉ ngon miệng mà
                 còn là biểu tượng của sự sang trọng và đẳng cấp.
               </p>
-              <p className="font-serif text-lg font-medium mt-4">
-                Maria T. Jones
-              </p>
+              <p className=" text-lg font-medium mt-4">Maria T. Jones</p>
             </div>
           </div>
         </div>
@@ -104,9 +102,7 @@ export default function OurStoryAndConfectionsSection() {
                   "group-hover:translate-y-0 group-hover:opacity-100"
                 )}
               >
-                <h3 className="text-lg font-serif font-medium mb-1">
-                  {confection.name}
-                </h3>
+                <h3 className="text-lg  font-medium mb-1">{confection.name}</h3>
                 <p className="text-sm text-[#988779]">{confection.category}</p>
               </div>
             </Link>

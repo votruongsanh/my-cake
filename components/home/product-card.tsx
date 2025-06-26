@@ -48,7 +48,7 @@ export default function ProductCard({ image, name, price }: ProductCardProps) {
       <div className="relative py-8">
         <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 z-10 opacity-100 hover:scale-110 transition-transform duration-300"></div>
 
-        <h3 className="font-serif text-xl text-gray-800 mt-2">{name}</h3>
+        <h3 className=" text-xl text-gray-800 mt-2">{name}</h3>
         <p className="text-gray-600 text-lg">{price}</p>
       </div>
     </div>
