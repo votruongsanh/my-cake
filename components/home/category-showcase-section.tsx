@@ -38,9 +38,8 @@ export default function CategoryShowcaseSection() {
               <Image
                 src={category.image}
                 alt={category.title}
-                layout="fill"
-                objectFit="cover"
-                className="transition-transform duration-500 group-hover:scale-105"
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
               {/* Overlay for text content */}
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>

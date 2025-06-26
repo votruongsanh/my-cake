@@ -94,9 +94,8 @@ export default function GallerySection() {
               <Image
                 src={item.image}
                 alt={item.alt}
-                layout="fill"
-                objectFit="cover"
-                className="transition-transform duration-300 hover:scale-105"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-105"
               />
               {/* {item.type === "instagram-promo" && (
               <div className="flex flex-col items-center justify-center p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/50">

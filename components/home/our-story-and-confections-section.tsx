@@ -90,9 +90,8 @@ export default function OurStoryAndConfectionsSection() {
               <Image
                 src={confection.image}
                 alt={confection.name}
-                layout="fill"
-                objectFit="cover"
-                className="transition-transform duration-300 ease-out group-hover:scale-105"
+                fill
+                className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
               />
               <div
                 className={cn(

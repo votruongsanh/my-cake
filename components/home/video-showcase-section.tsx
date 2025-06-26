@@ -58,9 +58,8 @@ export default function VideoShowcaseSection() {
       <Image
         src={bgVideo}
         alt="Elegant Chocolate Showcase"
-        layout="fill"
-        objectFit="cover"
-        className="z-0"
+        fill
+        className="absolute inset-0 z-0 h-full w-full object-cover"
       />
 
       {/* Overlay */}

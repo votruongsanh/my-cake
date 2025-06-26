@@ -17,9 +17,8 @@ export default function ProductCard({ image, name, price }: ProductCardProps) {
         <Image
           src={image}
           alt={name}
-          layout="fill"
-          objectFit="cover"
-          className="transition-transform duration-300 group-hover:scale-105"
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div
           className="absolute bottom-0 left-0 right-0 py-4 flex items-center justify-center space-x-2

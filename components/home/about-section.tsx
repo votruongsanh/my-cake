@@ -22,8 +22,7 @@ export default function AboutSection() {
           <Image
             src={storeImg}
             alt="Our Story"
-            objectFit="cover"
-            className="transition-transform duration-500 hover:scale-105"
+            className="object-cover transition-transform duration-500 hover:scale-105"
           />
         </div>
 
@@ -32,8 +31,7 @@ export default function AboutSection() {
           <Image
             src={workerImg}
             alt="Our Story"
-            objectFit="cover"
-            className="transition-transform duration-500 hover:scale-105"
+            className="object-cover transition-transform duration-500 hover:scale-105"
           />
         </div>
 

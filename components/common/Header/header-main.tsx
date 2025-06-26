@@ -8,18 +8,15 @@ import CartIcon from "./cart-icon";
 import InitialHeaderContent from "./initial-header-content";
 import MobileNavMenu from "./mobile-nav-menu";
 
+// Danh sách các mục menu đã được cập nhật để trỏ đến các trang thực
 const navItems = [
   { href: "/", label: "Home", active: true },
-  { href: "/recipe", label: "Recipe" },
-  { href: "/blog", label: "Blog" },
+  // { href: "/recipe", label: "Recipe" }, // Tạm ẩn
+  // { href: "/blog", label: "Blog" }, // Tạm ẩn
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/gallery", label: "Gallery" }, // Giữ lại gallery vì có thể là một phần của trang chủ
   { href: "/shop", label: "Shop" },
-  { href: "/presets", label: "Presets" },
-  { href: "/print", label: "Print" },
-  { href: "/lifestyle", label: "Lifestyle" },
-  { href: "/travel", label: "Travel" },
 ];
 
 const HeaderMain = () => {
@@ -101,7 +98,7 @@ const HeaderMain = () => {
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             className={cn(
               "relative flex items-center justify-center h-9 w-20 rounded-full border border-gray-300 bg-white text-xs font-semibold uppercase tracking-widest transition-all duration-200 ease-in-out hover:bg-gray-100 active:scale-95",
-              "h-[60px] w-[60px]"
+              "h-[60px] w-[60px] cursor-pointer"
             )}
           >
             {isMobileMenuOpen ? "Close" : "Menu"}
@@ -110,7 +107,7 @@ const HeaderMain = () => {
       </header>
 
       {/* Mobile Navigation Menu - Slides down from under the header */}
-            <MobileNavMenu
+      <MobileNavMenu
         navItems={navItems}
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}

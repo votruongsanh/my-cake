@@ -92,9 +92,8 @@ export default function QuoteSlider() {
                 <Image
                   src={currentQuote.avatarSrc}
                   alt={`Avatar of ${currentQuote.author}`}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full"
+                  fill
+                  className="object-cover rounded-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                 />
               </div>
               <p className="text-lg font-semibold text-gray-600">

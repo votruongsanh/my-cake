@@ -12,17 +12,14 @@ export default function Home() {
   return (
     <main>
       <HeroSlider />
-
-      <div>
-        <ProductShowcase />
-        <OurStoryAndConfectionsSection />
-        <AboutSection />
-        <CategoryShowcaseSection />
-        <QuoteSlider />
-        <VideoShowcaseSection />
-        <SweetnessForSpecialDaysSection />
-        <GallerySection />
-      </div>
+      <ProductShowcase />
+      <OurStoryAndConfectionsSection />
+      <AboutSection />
+      <CategoryShowcaseSection />
+      <QuoteSlider />
+      <VideoShowcaseSection />
+      <SweetnessForSpecialDaysSection />
+      <GallerySection />
     </main>
   );
 }
