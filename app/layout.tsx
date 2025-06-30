@@ -85,7 +85,7 @@ export const metadata: Metadata = {
   manifest: `${siteConfig.url}/site.webmanifest`,
   // Thêm mã xác minh cho các công cụ tìm kiếm (thay bằng mã thật của bạn)
   verification: {
-    google: "your-google-verification-code",
+    google: "NH29LWB5_dkvC8keT6gnVdOqx7gqB28OpYOkYnBxkf8",
   },
 };
 
