@@ -33,10 +33,16 @@ const HeaderMain = () => {
   const [mobileHeaderHeight, setMobileHeaderHeight] = useState(0);
 
   useEffect(() => {
-    // Measure mobile header height for positioning the mobile menu
-    if (mobileHeaderRef.current) {
-      setMobileHeaderHeight(mobileHeaderRef.current.offsetHeight);
-    }
+    // Function to measure the mobile header's height.
+    const measureHeader = () => {
+      if (mobileHeaderRef.current) {
+        setMobileHeaderHeight(mobileHeaderRef.current.offsetHeight);
+      }
+    };
+
+    // Measure on initial mount and on window resize to ensure the height is always correct.
+    measureHeader();
+    window.addEventListener("resize", measureHeader);
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -75,7 +81,12 @@ const HeaderMain = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Cleanup both event listeners on component unmount.
+    return () => {
+      window.removeEventListener("resize", measureHeader);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -113,6 +124,7 @@ const HeaderMain = () => {
         onClose={() => setIsMobileMenuOpen(false)}
         headerHeight={mobileHeaderHeight}
         isHeaderVisible={isMobileHeaderVisible}
+
       />
 
       {/* Desktop Headers - Logic remains for larger screens */}
