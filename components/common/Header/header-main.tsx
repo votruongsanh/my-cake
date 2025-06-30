@@ -120,8 +120,8 @@ const HeaderMain = () => {
         headerHeight={mobileHeaderHeight}
         isHeaderVisible={isMobileHeaderVisible}
       />
-      {/* Placeholder to prevent content from being obscured by the fixed mobile header */}
-      <div style={{ height: mobileHeaderHeight }} className="md:hidden" />
+      {/* On non-home pages, add a placeholder to prevent content from being obscured by the fixed mobile header */}
+      {!isHomePage && <div style={{ height: mobileHeaderHeight }} className="md:hidden" />}
 
       {/* --- Desktop Header --- */}
       <div className="hidden md:block">
